@@ -1,0 +1,84 @@
+
+    
+def myLog(x, b):
+    '''
+    x: a positive integer
+    b: a positive integer; b >= 2
+
+    returns: log_b(x), or, the logarithm of x relative to a base b.
+    '''
+    count=0
+    while b**count<=x:
+        count+=1
+    return count-1
+    
+    
+    
+    
+    
+    
+def lessThan4(aList):
+    '''
+    aList: a list of strings
+    '''
+    ans=[]
+    for i in aList:
+        if len(i)<4:
+            ans.append(i)
+    return ans
+
+                        
+        
+def sumDigits(N):
+    '''
+    N: a non-negative integer
+    '''
+    if N <= 10:
+        return N
+    else:
+        return sumDigits(N/10)+N%10
+        
+        
+        
+def keysWithValue(aDict, target):
+    '''
+    aDict: a dictionary
+    target: an integer
+    '''
+    ans=aDict.keys()
+    
+    for i in ans:
+        if aDict[i] != target:
+            del aDict[i]
+    return sorted(aDict.keys())
+
+            
+                                    
+         
+def f(s):
+    return 'a' in s                        
+
+                                    
+def satisfiesF(L):
+    """
+    Assumes L is a list of strings
+    Assume function f is already defined for you and it maps a string to a Boolean
+    Mutates L such that it contains all of the strings, s, originally in L such
+            that f(s) returns True, and no other elements
+    Returns the length of L after mutation
+    """
+    a=[]
+    for i in L:
+        if f(i) ==True:
+            a.append(i)
+    L[:]=a                
+    return len(L)
+    
+
+
+
+def satisfiesF(L):
+        for i in L:
+            if f(i) != True:
+                L.remove(i)
+        return len(L)     
